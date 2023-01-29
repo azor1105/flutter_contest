@@ -24,26 +24,35 @@ class SingleFileDownload extends StatelessWidget {
             name: fileInfo.fileName,
           );
           return ListTile(
-            leading:
-                FileHiveService.getFileByName(name: fileInfo.fileName) != null
-                    ? const Icon(Icons.download_done)
-                    : state.isPaused != null && state.isPaused == true
-                        ? const Icon(
-                            Icons.pause,
-                          )
-                        : const Icon(Icons.download),
-            title: Text(fileInfo.fileName),
-            subtitle: LinearProgressIndicator(
-              value: state.progress,
-              backgroundColor: Colors.black,
+            leading: IconButton(
+              onPressed: () {
+                if (state.progress != 0.0 && downloadedFile == null) {
+                  if (state.isPaused != null && state.isPaused!) {
+                    context.read<DownloadCubit>().resume();
+                  } else {
+                    context.read<DownloadCubit>().pause();
+                  }
+                }
+              },
+              icon:
+                  FileHiveService.getFileByName(name: fileInfo.fileName) != null
+                      ? const Icon(Icons.download_done)
+                      : state.isPaused != null && state.isPaused == true
+                          ? const Icon(
+                              Icons.pause,
+                            )
+                          : const Icon(Icons.download),
             ),
+            title: Text(fileInfo.fileName),
+            subtitle: downloadedFile != null
+                ? const Text("Saved")
+                : LinearProgressIndicator(
+                    value: state.progress,
+                    backgroundColor: Colors.black,
+                  ),
             onTap: () {
-              if (downloadedFile == null && state.progress == 0) {
+              if (downloadedFile == null && state.progress == 0.0) {
                 context.read<DownloadCubit>().download(fileInfo: fileInfo);
-              } else if (state.isPaused != null && state.isPaused == true) {
-                context.read<DownloadCubit>().resume();
-              } else {
-                context.read<DownloadCubit>().pause();
               }
             },
             trailing: IconButton(

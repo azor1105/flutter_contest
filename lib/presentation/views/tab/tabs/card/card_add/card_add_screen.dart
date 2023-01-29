@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_contest/data/models/card_model/card_model.dart';
 import 'package:flutter_contest/data/repos/card_repo/card_repo.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
@@ -129,10 +128,10 @@ class _CardAddScreenState extends State<CardAddScreen> {
               onChanged: (String value) {
                 var text = expireDateController.text;
                 if ((text.length == 5 &&
-                    DateTime(int.parse("20${text[3]}${text[4]}"),
-                        int.parse("${text[0]}${text[1]}"))
-                        .compareTo(DateTime.now()) <
-                        0) ||
+                        DateTime(int.parse("20${text[3]}${text[4]}"),
+                                    int.parse("${text[0]}${text[1]}"))
+                                .compareTo(DateTime.now()) <
+                            0) ||
                     (text.length == 2 && int.parse(text[0] + text[1]) > 12)) {
                   expireDateController.clear();
                   Utils.getMyToast(
@@ -182,13 +181,12 @@ class _CardAddScreenState extends State<CardAddScreen> {
                     userId: '',
                     cardType: cardType,
                   );
-                  Utils.showProgress(context: context);
-                  await CardRepo(fireStore: FirebaseFirestore.instance).addCard(cardModel: cardModel);
+                  CardRepo(fireStore: FirebaseFirestore.instance).addCard(
+                    cardModel: cardModel,
+                  );
                   Utils.getMyToast(message: "Muvaffaqiyatli qo'shildi");
                   Navigator.pop(context);
-                  Navigator.pop(context);
-                }
-                else {
+                } else {
                   Utils.getMyToast(message: "Hammasini to'ldiring");
                 }
               },

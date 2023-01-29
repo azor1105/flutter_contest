@@ -21,11 +21,11 @@ class DownloadCubit extends Cubit<DonwloadState> {
       fileInfo.fileUrl.length - 5,
       fileInfo.fileUrl.length,
     )}";
-
+    emit(state.copyWith(progress: 0.01));
     final downloaderUtils = DownloaderUtils(
       progressCallback: (current, total) {
         emit(
-          state.copyWith(progress: (current / total) * 100),
+          state.copyWith(progress: (current / total)),
         );
       },
       file: File(path),
