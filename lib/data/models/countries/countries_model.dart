@@ -21,13 +21,21 @@ class CountriesModel {
   @JsonKey(defaultValue: "", name: "phone")
   final String phone;
 
+  @JsonKey(defaultValue: "", name: "emoji")
+  final String emoji;
+
   @JsonKey(name: "continent")
   final ContinentModel continent;
 
-
-
-  
-  CountriesModel({required this.countryCode, required this.name,required this.capital, required this.currency, required this.phone, required this.continent});
+  CountriesModel({
+    required this.countryCode,
+    required this.name,
+    required this.capital,
+    required this.currency,
+    required this.phone,
+    required this.continent,
+    required this.emoji,
+  });
 
   factory CountriesModel.fromJson(Map<String, dynamic> json) {
     return _$CountriesModelFromJson(json);

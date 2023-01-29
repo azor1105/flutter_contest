@@ -15,6 +15,7 @@ CountriesModel _$CountriesModelFromJson(Map<String, dynamic> json) =>
       phone: json['phone'] as String? ?? '',
       continent:
           ContinentModel.fromJson(json['continent'] as Map<String, dynamic>),
+      emoji: json['emoji'] as String? ?? '',
     );
 
 Map<String, dynamic> _$CountriesModelToJson(CountriesModel instance) =>
@@ -24,5 +25,6 @@ Map<String, dynamic> _$CountriesModelToJson(CountriesModel instance) =>
       'capital': instance.capital,
       'currency': instance.currency,
       'phone': instance.phone,
+      'emoji': instance.emoji,
       'continent': instance.continent,
     };
