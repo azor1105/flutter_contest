@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/country_list/country_list_screen.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({super.key});
@@ -9,7 +11,7 @@ class TabScreen extends StatefulWidget {
 
 class _TabScreenState extends State<TabScreen> {
   final List<Widget> _screens = [
-    const Scaffold(),
+    const CountryListScreen(),
     const Scaffold(),
     const Scaffold()
   ];
