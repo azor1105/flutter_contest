@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_contest/presentation/utils/constants/api_keys.dart';
 
 import 'custom_exceptions.dart';
@@ -21,7 +20,6 @@ class ApiClient {
     dio.interceptors.add(
       (InterceptorsWrapper(
         onError: (error, handler) async {
-          debugPrint("Entered to Error");
           switch (error.type) {
             case DioErrorType.connectTimeout:
             case DioErrorType.sendTimeout:
@@ -46,16 +44,13 @@ class ApiClient {
             case DioErrorType.other:
               throw NoInternetConnectionException(error.requestOptions);
           }
-          debugPrint('Error Status Code:${error.response?.statusCode}');
           return handler.next(error);
         },
         onRequest: (requestOptions, handler) {
-          debugPrint("ON REQUESTGA KIRDI");
           requestOptions.headers["Accept"] = "application/json";
           return handler.next(requestOptions);
         },
         onResponse: (response, handler) async {
-          debugPrint("ON RESPONSEGA KIRDI");
           return handler.next(response);
         },
       )),

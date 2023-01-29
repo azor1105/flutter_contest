@@ -10,19 +10,23 @@ class OfflineCountryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: const Text("API call and Caching")),
+      appBar: AppBar(
+        title: const Text("API call and Caching Offline"),
+      ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 15.h),
         children: List.generate(
-          CountryHiveService.getCountries().values.toList().length, (index) {
-            var country = CountryHiveService.getCountries().values.toList()[index];
+          CountryHiveService.getCountries().values.toList().length,
+          (index) {
+            var country =
+                CountryHiveService.getCountries().values.toList()[index];
             return ListTile(
               onTap: () {
                 Navigator.pushNamed(
                   context,
                   RouteNames.countryDetail,
-                  arguments: country,
+                  arguments: country.toCountryModel(),
                 );
               },
               title: Text(country.name),
