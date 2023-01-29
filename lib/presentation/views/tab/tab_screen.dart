@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/card_add/card_add_screen.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/card_screen.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/country_list/view/country_list_screen.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/file_download/view/download_example.dart';
 
@@ -15,7 +15,7 @@ class _TabScreenState extends State<TabScreen> {
   final List<Widget> _screens = [
     const CountryListScreen(),
     const FileDownloadExample(),
-    const CardAddScreen()
+    const CardScreen(),
   ];
   int _currentIndex = 0;
 

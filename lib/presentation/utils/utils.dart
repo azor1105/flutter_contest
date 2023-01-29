@@ -52,4 +52,14 @@ class Utils {
       child: CircularProgressIndicator.adaptive(),
     );
   }
+
+  static showProgress({required BuildContext context}) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Center(child: CircularProgressIndicator.adaptive());
+      },
+    );
+  }
 }

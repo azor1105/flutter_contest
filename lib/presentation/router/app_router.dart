@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contest/app/view/app.dart';
+import 'package:flutter_contest/data/models/card_model/card_model.dart';
 import 'package:flutter_contest/data/models/countries/countries_model.dart';
 import 'package:flutter_contest/presentation/utils/constants/route_names.dart';
 import 'package:flutter_contest/presentation/views/offline_country/offline_country_screen.dart';
 import 'package:flutter_contest/presentation/views/splash/splash_screen.dart';
 import 'package:flutter_contest/presentation/views/tab/tab_screen.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/card_add/card_add_screen.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/card_edit/card_edit_screen.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/country_list/view/country_detail/country_detail_screen.dart';
 
 class AppRouter {
@@ -30,6 +33,16 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (ctx) => CountryDetailScreen(
             countriesModel: routeSettings.arguments as CountriesModel,
+          ),
+        );
+      case RouteNames.cardAdd:
+        return MaterialPageRoute(
+          builder: (ctx) => CardAddScreen(),
+        );
+      case RouteNames.cardEdit:
+        return MaterialPageRoute(
+          builder: (ctx) => CardEditScreen(
+            card: routeSettings.arguments as CardModel,
           ),
         );
       default:

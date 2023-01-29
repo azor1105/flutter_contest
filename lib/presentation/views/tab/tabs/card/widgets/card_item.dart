@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_contest/presentation/utils/assets.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,6 +10,11 @@ class CardItem extends StatelessWidget {
     required this.expireDate,
     required this.cardNumber,
     required this.cardName,
+    required this.cardType,
+    required this.gradient,
+    this.onEditTap,
+    this.onDeleteTap,
+    this.buttonsVisible = false,
   });
 
   @override
@@ -23,33 +29,38 @@ class CardItem extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.5.r),
-              gradient: const LinearGradient(
-                colors: ColorConst.otherGradient1,
+              gradient: LinearGradient(
+                colors: gradient,
                 begin: Alignment.bottomRight,
                 end: Alignment.topLeft,
               ),
             ),
           ),
-          // Positioned(
-          //   child: SvgPicture.asset(CardIcons.cardVector1),
-          // ),
-          // Positioned(
-          //   left: 15.w,
-          //   child: SvgPicture.asset(CardIcons.cardVector2),
-          // ),
-          // Align(
-          //   alignment: Alignment.bottomLeft,
-          //   child: SvgPicture.asset(CardIcons.cardVector3),
-          // ),
           Padding(
-            padding: EdgeInsets.only(top: 33.h, left: 34.w, right: 26.w, bottom: 28.h),
+            padding: EdgeInsets.only(
+                top: 33.h, left: 34.w, right: 26.w, bottom: 28.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(cardName, style: TextStyle(fontSize: 16.sp, color: ColorConst.white)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                        child: Text(
+                            cardName.isNotEmpty ? cardName : "Karta nomi",
+                            style: TextStyle(
+                                fontSize: 16.sp, color: ColorConst.white),
+                            maxLines: 1)),
+                    cardType.isEmpty
+                        ? const SizedBox()
+                        : cardType == "UzCard"
+                            ? Image.asset(Assets.uzcard, width: 40.w)
+                            : Image.asset(Assets.humo, width: 40.w),
+                  ],
+                ),
                 const Spacer(),
                 Text(
-                  cardNumber,
+                  cardNumber.isNotEmpty ? cardNumber : "Karta raqami",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25.sp,
@@ -63,7 +74,7 @@ class CardItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Card Holder name',
+                          'Karta egasining ismi',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontSize: 9.sp,
@@ -89,7 +100,7 @@ class CardItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Expiry date',
+                          'Amal qilish muddati',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontSize: 9.sp,
@@ -112,6 +123,25 @@ class CardItem extends StatelessWidget {
               ],
             ),
           ),
+          Visibility(
+            visible: buttonsVisible,
+            child: Positioned(
+                bottom: 12,
+                right: 10,
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: onEditTap,
+                      icon: const Icon(Icons.edit, color: Colors.white),
+                    ),
+                    IconButton(
+                      onPressed: onDeleteTap,
+                      icon: const Icon(Icons.delete, color: Colors.white),
+                    ),
+                  ],
+                ),
+            ),
+          )
         ],
       ),
     );
@@ -121,4 +151,9 @@ class CardItem extends StatelessWidget {
   final String expireDate;
   final String cardNumber;
   final String cardName;
+  final String cardType;
+  final List<Color> gradient;
+  final VoidCallback? onEditTap;
+  final VoidCallback? onDeleteTap;
+  final bool buttonsVisible;
 }

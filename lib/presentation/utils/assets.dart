@@ -1,5 +1,8 @@
 class Assets {
   // .png
+  static const String humo = "assets/images/humo.png";
+  static const String uzcard = "assets/images/uzcard.png";
+
 
   // .svg
 
