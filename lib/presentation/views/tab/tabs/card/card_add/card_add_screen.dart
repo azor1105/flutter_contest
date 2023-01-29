@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_contest/data/models/card_model/card_model.dart';
 import 'package:flutter_contest/data/repos/card_repo/card_repo.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
+import 'package:flutter_contest/presentation/utils/extensions/device_id_extension.dart';
 import 'package:flutter_contest/presentation/utils/utils.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/card/widgets/card_item.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/card/widgets/card_types_item.dart';
@@ -168,6 +169,7 @@ class _CardAddScreenState extends State<CardAddScreen> {
                     cardNameController.text.isNotEmpty &&
                     userNameController.text.isNotEmpty &&
                     cardType.isNotEmpty) {
+                  String? userId = await getDeviceId();
                   var cardModel = CardModel(
                     index: selectedIndex,
                     cardId: '',
@@ -178,7 +180,7 @@ class _CardAddScreenState extends State<CardAddScreen> {
                     owner: userNameController.text,
                     expireDate: expireDateController.text,
                     iconImage: '',
-                    userId: '',
+                    userId: userId!,
                     cardType: cardType,
                   );
                   CardRepo(fireStore: FirebaseFirestore.instance).addCard(

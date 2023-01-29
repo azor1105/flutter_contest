@@ -25,7 +25,7 @@ class _CardScreenState extends State<CardScreen> {
     return BlocProvider(
       create: (context) =>
           CardCubit(CardRepo(fireStore: FirebaseFirestore.instance))
-            ..getUserCards(userId: ''),
+            ..getUserCards(),
       child: Scaffold(
         backgroundColor: ColorConst.white,
         appBar: AppBar(
