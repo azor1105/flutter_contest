@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "278200026150",
+    "project_id": "flutter-contest-31e5c",
+    "storage_bucket": "flutter-contest-31e5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278200026150:android:7ea435153f0391b0df12e7",
+        "android_client_info": {
+          "package_name": "com.example.flutter_contest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278200026150-7fbjgqr28q2f8knvhqappqu59om37b4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeTbWjz4KyXcdBgvc_iVaTRs75lLuiMdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278200026150-7fbjgqr28q2f8knvhqappqu59om37b4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
