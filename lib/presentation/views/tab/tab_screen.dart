@@ -14,8 +14,8 @@ class TabScreen extends StatefulWidget {
 class _TabScreenState extends State<TabScreen> {
   final List<Widget> _screens = [
     const CountryListScreen(),
-    const CardScreen(),
     const FileDownloadScreen(),
+    const CardScreen(),
   ];
   int _currentIndex = 0;
 

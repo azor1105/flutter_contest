@@ -9,4 +9,5 @@ class Assets {
   // .lottie
   static const String splashLottie = "assets/lottie/splash_lottie.json";
   static const String noInternetLottie = "assets/lottie/no_internet.json";
+  static const String noCardLottie = "assets/lottie/no_card.json";
 }
