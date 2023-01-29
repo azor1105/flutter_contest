@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/card/card_screen.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/card_screen.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/country_list/view/country_list_screen.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/file_download/view/file_download_screen.dart';
 

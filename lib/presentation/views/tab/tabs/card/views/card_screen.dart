@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_contest/cubits/card_cubit/card_cubit.dart';
 import 'package:flutter_contest/data/models/status.dart';
 import 'package:flutter_contest/data/repos/card_repo/card_repo.dart';
 import 'package:flutter_contest/presentation/utils/assets.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
 import 'package:flutter_contest/presentation/utils/constants/route_names.dart';
 import 'package:flutter_contest/presentation/utils/utils.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/card/widgets/card_item.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/card/widgets/custom_dialog.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/cubit/card_cubit.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/card_item.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/custom_dialog.dart';
 import 'package:lottie/lottie.dart';
 
 class CardScreen extends StatefulWidget {

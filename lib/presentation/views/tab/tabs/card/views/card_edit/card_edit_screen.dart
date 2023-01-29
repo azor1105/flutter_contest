@@ -4,8 +4,8 @@ import 'package:flutter_contest/data/models/card_model/card_model.dart';
 import 'package:flutter_contest/data/repos/card_repo/card_repo.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
 import 'package:flutter_contest/presentation/utils/utils.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/card/widgets/card_item.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/card/widgets/my_text_field.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/card_item.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/my_text_field.dart';
 import 'package:flutter_contest/presentation/views/widgets/global_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

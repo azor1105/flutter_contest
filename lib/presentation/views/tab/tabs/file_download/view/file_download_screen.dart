@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contest/data/models/file_info/file_info.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
-import 'package:flutter_contest/presentation/views/widgets/single_file_download.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/file_download/view/widget/single_file_download.dart';
 
 class FileDownloadScreen extends StatelessWidget {
   const FileDownloadScreen({Key? key}) : super(key: key);

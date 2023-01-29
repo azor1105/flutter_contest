@@ -6,8 +6,8 @@ import 'package:flutter_contest/presentation/utils/constants/route_names.dart';
 import 'package:flutter_contest/presentation/views/offline_country/offline_country_screen.dart';
 import 'package:flutter_contest/presentation/views/splash/splash_screen.dart';
 import 'package:flutter_contest/presentation/views/tab/tab_screen.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/card/card_add/card_add_screen.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/card/card_edit/card_edit_screen.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/card_add/card_add_screen.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/card_edit/card_edit_screen.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/country_list/view/country_detail/country_detail_screen.dart';
 
 class AppRouter {

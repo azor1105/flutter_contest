@@ -11,7 +11,9 @@ part 'download_state.dart';
 
 class DownloadCubit extends Cubit<DonwloadState> {
   DownloadCubit() : super(const DonwloadState());
+
   DownloaderCore? _core;
+  
   Future<void> download({required FileInfo fileInfo}) async {
     bool isGranted = await requestStorage();
     if (!isGranted) return;
