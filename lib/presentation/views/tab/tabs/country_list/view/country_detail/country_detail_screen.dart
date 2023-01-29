@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_contest/data/models/countries/countries_model.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CountryDetailScreen extends StatefulWidget {
-  const CountryDetailScreen({Key? key}) : super(key: key);
+class CountryDetailScreen extends StatelessWidget {
+  const CountryDetailScreen({
+    Key? key,
+    required this.countriesModel,
+  }) : super(key: key);
 
-  @override
-  State<CountryDetailScreen> createState() => _CountryDetailScreenState();
-}
+  final CountriesModel countriesModel;
 
-class _CountryDetailScreenState extends State<CountryDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,16 +25,21 @@ class _CountryDetailScreenState extends State<CountryDetailScreen> {
               Row(
                 children: [
                   Text(
-                    "🇦🇩",
+                    countriesModel.emoji,
                     style: TextStyle(fontSize: 70.sp),
                   ),
                   SizedBox(width: 20.w),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Andorra", style: TextStyle(fontSize: 25.sp)),
-                      const Text("Andorra la Vella"),
-                    ],
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          countriesModel.name,
+                          style: TextStyle(fontSize: 25.sp),
+                        ),
+                        Text(countriesModel.capital),
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -44,19 +50,24 @@ class _CountryDetailScreenState extends State<CountryDetailScreen> {
                   Column(
                     children: [
                       Text("Code", style: TextStyle(fontSize: 20.sp)),
-                      Text("AD")
+                      Text(countriesModel.countryCode)
                     ],
                   ),
                   Column(
                     children: [
-                      Text("Continent", style: TextStyle(fontSize: 20.sp)),
-                      Text("EU/Europe")
+                      Text(
+                        "Continent",
+                        style: TextStyle(fontSize: 20.sp),
+                      ),
+                      Text(
+                        "${countriesModel.continent.code}/${countriesModel.continent.name}",
+                      )
                     ],
                   ),
                   Column(
                     children: [
                       Text("Currency", style: TextStyle(fontSize: 20.sp)),
-                      Text("EUR")
+                      Text(countriesModel.currency)
                     ],
                   )
                 ],

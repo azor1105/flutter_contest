@@ -1,3 +1,5 @@
+import 'package:flutter_contest/data/models/countries/continent/continent_model.dart';
+import 'package:flutter_contest/data/models/countries/countries_model.dart';
 import 'package:hive/hive.dart';
 
 part 'country_hive_model.g.dart';
@@ -38,4 +40,17 @@ class CountryHiveModel extends HiveObject {
     required this.name,
     required this.phone,
   });
+
+  CountriesModel toCountryModel() => CountriesModel(
+        countryCode: code,
+        name: name,
+        capital: capital,
+        currency: currency,
+        phone: phone,
+        continent: ContinentModel(
+          code: code,
+          name: name,
+        ),
+        emoji: emoji,
+      );
 }

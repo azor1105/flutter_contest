@@ -47,14 +47,9 @@ class Utils {
     );
   }
 
-  static showLoader(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) {
-        return const Center(
-          child: CircularProgressIndicator.adaptive(),
-        );
-      },
+  static showLoader() {
+    return const Center(
+      child: CircularProgressIndicator.adaptive(),
     );
   }
 }

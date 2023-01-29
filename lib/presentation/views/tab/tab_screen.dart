@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/country_list/country_list_screen.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/country_list/view/country_list_screen.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({super.key});
@@ -25,6 +25,8 @@ class _TabScreenState extends State<TabScreen> {
         children: _screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: ColorConst.white,
+        type: BottomNavigationBarType.fixed,
         onTap: (index) {
           setState(() {
             _currentIndex = index;

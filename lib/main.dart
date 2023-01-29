@@ -15,7 +15,7 @@ Future<void> main() async {
   // Initializing Hive && Storage Service
   await Hive.initFlutter();
   Hive.registerAdapter(CountryHiveModelAdapter());
-  await Hive.openBox(HiveKeys.countryBox);
+  await Hive.openBox<CountryHiveModel>(HiveKeys.countryBox);
 
   // Setting portrait view on app && white status bar
   SystemChrome.setPreferredOrientations([
