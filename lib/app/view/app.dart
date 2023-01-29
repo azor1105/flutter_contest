@@ -14,7 +14,13 @@ class App extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
-          theme: ThemeData(useMaterial3: true, primarySwatch: Colors.blue),
+          theme: ThemeData(
+            useMaterial3: true,
+            primarySwatch: Colors.orange,
+            colorScheme: ColorScheme.fromSwatch(
+              primarySwatch: Colors.blue,
+            ),
+          ),
           debugShowCheckedModeBanner: false,
           initialRoute: RouteNames.splash,
           onGenerateRoute: AppRouter.onGenerateRoute,
