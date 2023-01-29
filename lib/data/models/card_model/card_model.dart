@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter_contest/presentation/utils/extensions/color_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 

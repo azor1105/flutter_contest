@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_contest/data/models/countries/countries_model.dart';
 import 'package:flutter_contest/data/models/status.dart';

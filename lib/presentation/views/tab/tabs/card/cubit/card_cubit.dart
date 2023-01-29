@@ -11,14 +11,14 @@ part 'card_state.dart';
 class CardCubit extends Cubit<CardState> {
   CardCubit(CardRepo cardRepo)
       : _cardRepo = cardRepo,
-        super(CardState(cards: []));
+        super(const CardState(cards: []));
 
   final CardRepo _cardRepo;
   late StreamSubscription _subscription;
 
   Future<void> getUserCards() async {
     emit(state.copyWith(status: Status.loading));
-    String? deviceId =await getDeviceId();
+    String? deviceId = await getDeviceId();
     _subscription = _cardRepo.getUserCards(userId: deviceId!).listen(
       (items) {
         emit(state.copyWith(status: Status.success, cards: items));
@@ -28,5 +28,11 @@ class CardCubit extends Cubit<CardState> {
             status: Status.failure, errorText: error.toString()));
       },
     );
+  }
+
+  @override
+  Future<void> close() {
+    _subscription.cancel();
+    return super.close();
   }
 }

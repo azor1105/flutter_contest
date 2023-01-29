@@ -58,7 +58,9 @@ class Utils {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return Center(child: CircularProgressIndicator.adaptive());
+        return const Center(
+          child: CircularProgressIndicator.adaptive(),
+        );
       },
     );
   }

@@ -9,7 +9,7 @@ import 'package:flutter_contest/presentation/utils/constants/route_names.dart';
 import 'package:flutter_contest/presentation/utils/utils.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/card/cubit/card_cubit.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/card_item.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/custom_dialog.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/delete_dialog.dart';
 import 'package:lottie/lottie.dart';
 
 class CardScreen extends StatefulWidget {

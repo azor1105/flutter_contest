@@ -6,7 +6,6 @@ import 'package:flutter_contest/data/services/hive/country_hive/models/country_h
 import 'package:flutter_contest/data/services/hive/file_hive/models/file_hive_model.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
 import 'package:flutter_contest/presentation/utils/constants/hive_keys.dart';
-import 'package:flutter_contest/presentation/utils/extensions/device_id_extension.dart';
 import 'package:hive_flutter/adapters.dart';
 
 Future<void> main() async {
@@ -32,5 +31,5 @@ Future<void> main() async {
     statusBarBrightness: Brightness.dark,
   ));
 
-  runApp(App());
+  runApp(const App());
 }

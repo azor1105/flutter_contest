@@ -66,16 +66,16 @@ class MyTextField extends StatelessWidget {
                 filled: true,
                 fillColor: Colors.white,
                 border: const OutlineInputBorder(),
-                enabledBorder: OutlineInputBorder(
+                enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   borderSide: BorderSide(color: ColorConst.neutral8),
                 ),
-                focusedBorder: OutlineInputBorder(
+                focusedBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   borderSide:
                       BorderSide(color: ColorConst.primaryColor, width: 2),
                 ),
-                focusedErrorBorder: OutlineInputBorder(
+                focusedErrorBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(100)),
                   borderSide: BorderSide(color: ColorConst.error),
                 ),

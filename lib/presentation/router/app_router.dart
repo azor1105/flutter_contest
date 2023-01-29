@@ -37,7 +37,7 @@ class AppRouter {
         );
       case RouteNames.cardAdd:
         return MaterialPageRoute(
-          builder: (ctx) => CardAddScreen(),
+          builder: (ctx) => const CardAddScreen(),
         );
       case RouteNames.cardEdit:
         return MaterialPageRoute(

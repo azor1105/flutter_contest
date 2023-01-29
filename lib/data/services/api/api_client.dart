@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_contest/presentation/utils/constants/api_keys.dart';
 
 import 'custom_exceptions.dart';
 
 class ApiClient {
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: ApiKeys.BASE_URL,
+      baseUrl: "https://najot-exam.free.mockoapp.net",
       connectTimeout: 25000,
       receiveTimeout: 20000,
     ),
