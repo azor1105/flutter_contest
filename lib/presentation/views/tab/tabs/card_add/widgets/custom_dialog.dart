@@ -9,7 +9,6 @@ void showDeleteDialog(BuildContext context) {
         content: Text('This item will be permanently deleted.'),
         actions: <Widget>[
           ElevatedButton(
-            
             child: Text('Cancel'),
             onPressed: () {
               Navigator.of(context).pop();
