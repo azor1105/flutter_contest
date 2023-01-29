@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_contest/data/services/hive/file_hive/models/file_hive_model.dart';
 
 class FileInfo extends Equatable {
   final String fileName;
@@ -23,11 +24,7 @@ class FileInfo extends Equatable {
       );
 
   @override
-  List<Object?> get props => [
-        fileName,
-        fileUrl,
-        progress,
-      ];
+  List<Object?> get props => [fileName, fileUrl, progress];
 }
 
 List<FileInfo> filesData = [
