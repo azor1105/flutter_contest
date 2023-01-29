@@ -5,6 +5,7 @@ import 'package:flutter_contest/data/repos/card_repo/card_repo.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
 import 'package:flutter_contest/presentation/utils/utils.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/card_item.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/gradient_item.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/my_text_field.dart';
 import 'package:flutter_contest/presentation/views/widgets/global_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,10 +46,10 @@ class _CardEditScreenState extends State<CardEditScreen> {
           children: [
             CardItem(
               cardType: card.cardType,
-              cardHolderName: card.owner,
+              cardHolderName: userNameC.text,
               expireDate: card.expireDate,
               cardNumber: card.cardNumber,
-              cardName: card.cardName,
+              cardName: cardNameC.text,
               gradient: ColorConst.myGradients[selectedIndex],
             ),
             SizedBox(
@@ -58,40 +59,13 @@ class _CardEditScreenState extends State<CardEditScreen> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 children: List.generate(10, (index) {
-                  return GestureDetector(
+                  return GradientItem(
                     onTap: () {
                       selectedIndex = index;
                       setState(() {});
                     },
-                    child: Stack(
-                      children: [
-                        Center(
-                          child: Container(
-                            height: 50.w,
-                            width: 50.w,
-                            margin: EdgeInsets.only(right: 8.w),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: LinearGradient(
-                                colors: ColorConst.myGradients[index],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Visibility(
-                          visible: selectedIndex == index,
-                          child: const Positioned(
-                            bottom: 0,
-                            top: 0,
-                            left: 10,
-                            child: Icon(
-                              Icons.done,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
+                    gradient: ColorConst.myGradients[index],
+                    isSelected: selectedIndex == index,
                   );
                 }),
               ),
@@ -109,7 +83,9 @@ class _CardEditScreenState extends State<CardEditScreen> {
                 onChanged: (String v) {
                   setState(() {});
                 }),
-            SizedBox(height: MediaQuery.of(context).size.height*0.2,),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.2,
+            ),
             GlobalButton(
               onTap: () async {
                 if (cardNameC.text.isNotEmpty && userNameC.text.isNotEmpty) {
@@ -126,7 +102,8 @@ class _CardEditScreenState extends State<CardEditScreen> {
                     cardType: card.cardType,
                     index: selectedIndex,
                   );
-                  CardRepo(fireStore: FirebaseFirestore.instance).updateCardData(
+                  CardRepo(fireStore: FirebaseFirestore.instance)
+                      .updateCardData(
                     cardModel: cardModel,
                     docId: card.cardId,
                   );

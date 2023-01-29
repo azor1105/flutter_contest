@@ -7,6 +7,7 @@ import 'package:flutter_contest/presentation/utils/extensions/device_id_extensio
 import 'package:flutter_contest/presentation/utils/utils.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/card_item.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/card_types_item.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/gradient_item.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/card/views/widgets/my_text_field.dart';
 import 'package:flutter_contest/presentation/views/widgets/global_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -73,40 +74,13 @@ class _CardAddScreenState extends State<CardAddScreen> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 children: List.generate(10, (index) {
-                  return GestureDetector(
+                  return GradientItem(
                     onTap: () {
                       selectedIndex = index;
                       setState(() {});
                     },
-                    child: Stack(
-                      children: [
-                        Center(
-                          child: Container(
-                            height: 50.w,
-                            width: 50.w,
-                            margin: EdgeInsets.only(right: 8.w),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: LinearGradient(
-                                colors: ColorConst.myGradients[index],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Visibility(
-                          visible: selectedIndex == index,
-                          child: const Positioned(
-                            bottom: 0,
-                            top: 0,
-                            left: 10,
-                            child: Icon(
-                              Icons.done,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
+                    gradient: ColorConst.myGradients[index],
+                    isSelected: selectedIndex == index,
                   );
                 }),
               ),
@@ -115,15 +89,13 @@ class _CardAddScreenState extends State<CardAddScreen> {
               controller: cardNumberController,
               text: "Karta raqami",
               inputFormatters: [cardMaskFormatter],
-              textInputType: const TextInputType.numberWithOptions(
-                  signed: false, decimal: true),
+              textInputType: const TextInputType.numberWithOptions(signed: false, decimal: true),
               onChanged: (String value) {
                 setState(() {});
               },
             ),
             MyTextField(
-              textInputType: const TextInputType.numberWithOptions(
-                  signed: false, decimal: true),
+              textInputType: const TextInputType.numberWithOptions(signed: false, decimal: true),
               controller: expireDateController,
               text: "Amal qilish muddati",
               onChanged: (String value) {
@@ -135,8 +107,7 @@ class _CardAddScreenState extends State<CardAddScreen> {
                             0) ||
                     (text.length == 2 && int.parse(text[0] + text[1]) > 12)) {
                   expireDateController.clear();
-                  Utils.getMyToast(
-                      message: "Karta amal qilish muddatini to'g'ri kiriting");
+                  Utils.getMyToast(message: "Karta amal qilish muddatini to'g'ri kiriting");
                 }
                 setState(() {});
               },

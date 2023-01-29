@@ -37,25 +37,17 @@ class CardItem extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(
-                top: 33.h, left: 34.w, right: 26.w, bottom: 28.h),
+            padding: EdgeInsets.only(top: 33.h, left: 34.w, right: 26.w, bottom: 28.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                        child: Text(
-                            cardName.isNotEmpty ? cardName : "Karta nomi",
-                            style: TextStyle(
-                                fontSize: 16.sp, color: ColorConst.white),
-                            maxLines: 1)),
+                    Expanded(child: Text(cardName.isNotEmpty ? cardName : "Karta nomi", style: TextStyle(fontSize: 16.sp, color: ColorConst.white), maxLines: 1)),
                     cardType.isEmpty
                         ? const SizedBox()
-                        : cardType == "UzCard"
-                            ? Image.asset(Assets.uzcard, width: 40.w)
-                            : Image.asset(Assets.humo, width: 40.w),
+                        : cardType == "UzCard" ? Image.asset(Assets.uzcard, width: 40.w) : Image.asset(Assets.humo, width: 40.w),
                   ],
                 ),
                 const Spacer(),
