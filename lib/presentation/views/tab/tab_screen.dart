@@ -31,16 +31,16 @@ class _TabScreenState extends State<TabScreen> {
         currentIndex: _currentIndex,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.api),
+            label: 'API',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.file_copy_sharp),
+            label: 'File Download',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.credit_card),
+            label: 'Cards',
           ),
         ],
       ),
