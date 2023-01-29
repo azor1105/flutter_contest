@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_contest/presentation/utils/constants/route_names.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CountryListScreen extends StatefulWidget {
@@ -17,7 +18,10 @@ class _CountryListScreenState extends State<CountryListScreen> {
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 15.h),
         children: List.generate(10, (index) {
-          return const ListTile(
+          return ListTile(
+            onTap: (){
+              Navigator.pushNamed(context, RouteNames.countryDetail);
+            },
             title: Text("Andorra"),
             subtitle: Text("Andorra la Vella"),
           );
