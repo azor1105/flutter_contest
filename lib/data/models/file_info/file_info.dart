@@ -18,7 +18,7 @@ List<FileInfo> filesData = [
     fileUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
   ),
   const FileInfo(
-    fileName: 'Big bunny',
-    fileUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    fileName: 'For Bigger Joyrides',
+    fileUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
   ),
 ];
