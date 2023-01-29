@@ -31,7 +31,7 @@ class CountryListScreen extends StatelessWidget {
             if (state.status == Status.success) {
               return ListView(
                 physics: const BouncingScrollPhysics(),
-                padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 15.h),
+                padding: EdgeInsets.symmetric(horizontal: 5.w),
                 children: List.generate(
                   state.countries.length,
                   (index) {

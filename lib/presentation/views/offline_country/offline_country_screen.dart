@@ -22,7 +22,7 @@ class OfflineCountryScreen extends StatelessWidget {
                 Navigator.pushNamed(
                   context,
                   RouteNames.countryDetail,
-                  arguments: country,
+                  arguments: country.toCountryModel(),
                 );
               },
               title: Text(country.name),

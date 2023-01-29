@@ -1,8 +1,9 @@
-class Assets{
+class Assets {
   // .png
 
   // .svg
 
   // .lottie
-  static const splashLottie = "assets/lottie/splash_lottie.json";
+  static const String splashLottie = "assets/lottie/splash_lottie.json";
+  static const String noInternetLottie = "assets/lottie/no_internet.json";
 }
