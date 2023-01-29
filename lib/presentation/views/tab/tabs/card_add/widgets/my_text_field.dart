@@ -36,10 +36,7 @@ class MyTextField extends StatelessWidget {
             padding: EdgeInsets.only(left: 5.w),
             child: Text(
               text,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: ColorConst.primaryColor,
-                  fontSize: 16.sp),
+              style: TextStyle(fontWeight: FontWeight.bold, color: ColorConst.primaryColor, fontSize: 16.sp),
             ),
           ),
           const SizedBox(height: 10),
@@ -48,15 +45,12 @@ class MyTextField extends StatelessWidget {
             shadowColor: Colors.blue.withOpacity(0.12),
             elevation: 25,
             child: TextFormField(
+              inputFormatters: inputFormatters,
+              keyboardType: textInputType,
+              textInputAction: TextInputAction.next,
               onChanged: onChanged,
-              style: TextStyle(
-                  color: ColorConst.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.sp),
-              obscureText:
-                  (text == "Password" || text == "Confirmation password"
-                      ? true
-                      : false),
+              style: TextStyle(color: ColorConst.black, fontWeight: FontWeight.bold, fontSize: 16.sp),
+              obscureText: (text == "Password" || text == "Confirmation password" ? true : false),
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: validator,
               controller: controller,

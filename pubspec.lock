@@ -293,6 +293,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.1.1"
+  flutter_gradient_colors:
+    dependency: "direct main"
+    description:
+      name: flutter_gradient_colors
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -433,8 +440,7 @@ packages:
     dependency: "direct main"
     description:
       name: mask_text_input_formatter
-      sha256: "19bb7809c3c2559277e95521b3ee421e1409eb2cc85efd2feb191696c92490f4"
-      url: "https://pub.dev"
+      url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
   matcher:

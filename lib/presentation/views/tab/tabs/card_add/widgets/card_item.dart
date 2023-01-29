@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'card_input_component.dart';
-
 class CardItem extends StatelessWidget {
-  const CardItem(
-      {super.key,
-      required this.cardHolderName,
-      required this.expireDate,
-      required this.cardNumber});
+  const CardItem({
+    super.key,
+    required this.cardHolderName,
+    required this.expireDate,
+    required this.cardNumber,
+    required this.cardName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,24 +42,19 @@ class CardItem extends StatelessWidget {
           //   child: SvgPicture.asset(CardIcons.cardVector3),
           // ),
           Padding(
-            padding: EdgeInsets.only(
-                top: 33.h, left: 34.w, right: 26.w, bottom: 28.h),
+            padding: EdgeInsets.only(top: 33.h, left: 34.w, right: 26.w, bottom: 28.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(cardName, style: TextStyle(fontSize: 16.sp, color: ColorConst.white)),
+                const Spacer(),
                 Text(
-                  'Shaxsiy',
+                  cardNumber,
                   style: TextStyle(
-                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25.sp,
                     color: ColorConst.white,
                   ),
-                ),
-                const Spacer(),
-                CardInputComponent(
-                  cardText: (cardText) {
-                    cardNumber.call(cardText);
-                  },
-                  initialValue: '',
                 ),
                 const Spacer(),
                 Row(
@@ -124,5 +119,6 @@ class CardItem extends StatelessWidget {
 
   final String cardHolderName;
   final String expireDate;
-  final ValueChanged<String> cardNumber;
+  final String cardNumber;
+  final String cardName;
 }
