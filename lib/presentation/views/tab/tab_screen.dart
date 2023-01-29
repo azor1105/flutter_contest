@@ -22,17 +22,26 @@ class _TabScreenState extends State<TabScreen> {
         index: _currentIndex,
         children: _screens,
       ),
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (index) {
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
           setState(() {
             _currentIndex = index;
           });
         },
-        selectedIndex: _currentIndex,
-        destinations: const [
-          Icon(Icons.home),
-          Icon(Icons.home),
-          Icon(Icons.home),
+        currentIndex: _currentIndex,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
         ],
       ),
     );
