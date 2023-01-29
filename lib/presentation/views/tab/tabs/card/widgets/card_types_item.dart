@@ -3,16 +3,17 @@ import 'package:flutter_contest/presentation/utils/constants/color_const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CardTypeItem extends StatefulWidget {
-  const CardTypeItem({super.key});
+  const CardTypeItem({super.key, required this.valueChanged});
+
+  final ValueChanged<String> valueChanged;
+
 
   @override
   State<CardTypeItem> createState() => _CardTypeItemState();
 }
 
 class _CardTypeItemState extends State<CardTypeItem> {
-  TextEditingController controller = TextEditingController();
   String? valueChoose;
-  String? text;
   List listItem = ["UzCard", "Xumo"];
 
   @override
@@ -49,19 +50,15 @@ class _CardTypeItemState extends State<CardTypeItem> {
                 focusColor: ColorConst.white,
                 underline: const SizedBox(),
                 isExpanded: true,
-                icon: const Icon(Icons.arrow_drop_down,
-                    color: ColorConst.neutral5),
+                icon: const Icon(Icons.arrow_drop_down, color: ColorConst.neutral5),
                 iconSize: 30,
-                hint: Text("Karta turi",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: ColorConst.neutral7,
-                        fontSize: 16.sp)),
+                hint: Text("Karta turi", style: TextStyle(fontWeight: FontWeight.bold, color: ColorConst.neutral7, fontSize: 16.sp)),
                 value: valueChoose,
                 onChanged: (v) {
                   setState(() {
                     valueChoose = v as String;
                   });
+                  widget.valueChanged.call(valueChoose ?? "");
                 },
                 items: listItem.map((valueItem) {
                   return DropdownMenuItem(

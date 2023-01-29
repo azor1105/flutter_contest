@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gradient_colors/flutter_gradient_colors.dart';
 
 class ColorConst {
   static final blackWithOpacity087 = ColorConst.black.withOpacity(0.87);
@@ -24,4 +25,17 @@ class ColorConst {
   // Others
   static const otherGradient1 = [Color(0xFF2972FE), Color(0xFF6499FF)];
   static const otherGradient2 = [Color(0xFFFFB800), Color(0xFFFFDA7B)];
+
+  static List<List<Color>> myGradients = [
+    GradientColors.malibuBeach,
+    GradientColors.amyCrisp,
+    GradientColors.newLife,
+    GradientColors.plumPlate,
+    GradientColors.happyFisher,
+    GradientColors.nightParty,
+    GradientColors.phoenixStart,
+    GradientColors.blackGray,
+    GradientColors.hiddenJaguar,
+    GradientColors.plumBath,
+  ];
 }
