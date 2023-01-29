@@ -13,14 +13,13 @@ class FileDownloadScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("File download example one"),
       ),
-      body: ListView(
-        children: List.generate(
-          filesData.length,
-          (index) {
-            var singleFile = filesData[index];
-            return SingleFileDownload(fileInfo: singleFile);
-          },
-        ),
+      body: ListView.builder(
+        itemCount: filesData.length,
+        itemBuilder: (context, index) {
+          return SingleFileDownload(
+            fileInfo: filesData[index],
+          );
+        },
       ),
     );
   }

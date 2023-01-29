@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_contest/data/models/file_info/file_info.dart';
 import 'package:flutter_contest/data/services/hive/file_hive/file_hive.dart';
 import 'package:flutter_contest/presentation/utils/utils.dart';
-import 'package:flutter_contest/presentation/views/tab/tabs/file_download/cubit/file_manager_cubit.dart';
+import 'package:flutter_contest/presentation/views/tab/tabs/file_download/cubit/download_cubit.dart';
 import 'package:open_file_safe/open_file_safe.dart';
 
 class SingleFileDownload extends StatelessWidget {
@@ -17,27 +17,37 @@ class SingleFileDownload extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FileManagerCubit(),
-      child: BlocBuilder<FileManagerCubit, FileManagerState>(
+      create: (context) => DownloadCubit(),
+      child: BlocBuilder<DownloadCubit, DonwloadState>(
         builder: (context, state) {
+          var downloadedFile = FileHiveService.getFileByName(
+            name: fileInfo.fileName,
+          );
           return ListTile(
             leading:
-                FileHiveService.getFileByName(name: fileInfo.fileName) == null
-                    ? const Icon(Icons.download)
-                    : const Icon(Icons.download_done),
+                FileHiveService.getFileByName(name: fileInfo.fileName) != null
+                    ? const Icon(Icons.download_done)
+                    : state.isPaused != null && state.isPaused == true
+                        ? const Icon(
+                            Icons.pause,
+                          )
+                        : const Icon(Icons.download),
             title: Text(fileInfo.fileName),
             subtitle: LinearProgressIndicator(
               value: state.progress,
               backgroundColor: Colors.black,
             ),
             onTap: () {
-              context.read<FileManagerCubit>().download(fileInfo: fileInfo);
+              if (downloadedFile == null && state.progress == 0) {
+                context.read<DownloadCubit>().download(fileInfo: fileInfo);
+              } else if (state.isPaused != null && state.isPaused == true) {
+                context.read<DownloadCubit>().resume();
+              } else {
+                context.read<DownloadCubit>().pause();
+              }
             },
             trailing: IconButton(
               onPressed: () {
-                var downloadedFile = FileHiveService.getFileByName(
-                  name: fileInfo.fileName,
-                );
                 if (downloadedFile == null) {
                   Utils.getMyToast(
                     message: "Hali yuklamagan yoki jarayonda",

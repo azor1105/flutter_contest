@@ -1,4 +1,3 @@
-
 class FileInfo {
   final String fileName;
   final String fileUrl;
@@ -11,27 +10,18 @@ class FileInfo {
 
 List<FileInfo> filesData = [
   const FileInfo(
-    fileName: "PythonBook",
-    fileUrl: "https://bilimlar.uz/wp-content/uploads/2021/02/k100001.pdf",
+    fileName: 'Scratch',
+    fileUrl:
+        'https://firebasestorage.googleapis.com/v0/b/book-store-41f5d.appspot.com/o/scratch_programming_playground.pdf?alt=media&token=7f3213a8-6a82-4e71-adfa-6fa97a23c94e',
   ),
   const FileInfo(
-    fileName: "Butterfly",
+    fileName: 'Einstein',
     fileUrl:
-        "https://images.all-free-download.com/footage_preview/mp4/closeup_of_wild_butterfly_in_nature_6891908.mp4",
+        'http://www.relativitycalculator.com/pdfs/abraham_pais_subtle_is_the_lord.pdf',
   ),
   const FileInfo(
-    fileName: "Sabyan ya Rohman",
+    fileName: 'Big bunny',
     fileUrl:
-        "https://muzzona.kz/upload/files/2020-12/sabyan-gambus-rohman-ya-rohman_(muzzona.kz).mp3",
-  ),
-  const FileInfo(
-    fileName: "ajotyib rasm",
-    fileUrl:
-        "https://odam.uz/upload/media/posts/2019-10/21/mashhur-suratkash-ajoyib-rasm-olish-sirlarini-oshkor-qildi_1571694997-b.jpg",
-  ),
-  const FileInfo(
-    fileName: "Foydali file",
-    fileUrl:
-        "https://foydali-fayllar.uz/wp-content/uploads/2021/04/informatika-test.doc.zip",
+        "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
   ),
 ];
