@@ -10,14 +10,14 @@ class FileInfo {
 
 List<FileInfo> filesData = [
   const FileInfo(
-    fileName: 'Scratch',
+    fileName: "Elephant's dream",
     fileUrl:
-        'https://firebasestorage.googleapis.com/v0/b/book-store-41f5d.appspot.com/o/scratch_programming_playground.pdf?alt=media&token=7f3213a8-6a82-4e71-adfa-6fa97a23c94e',
+        '"https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",',
   ),
   const FileInfo(
-    fileName: 'Einstein',
+    fileName: 'For bigger fun',
     fileUrl:
-        'http://www.relativitycalculator.com/pdfs/abraham_pais_subtle_is_the_lord.pdf',
+        'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
   ),
   const FileInfo(
     fileName: 'Big bunny',

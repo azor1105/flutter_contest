@@ -4,7 +4,7 @@ import 'package:flutter_contest/data/models/file_info/file_info.dart';
 import 'package:flutter_contest/data/services/hive/file_hive/file_hive.dart';
 import 'package:flutter_contest/presentation/utils/utils.dart';
 import 'package:flutter_contest/presentation/views/tab/tabs/file_download/cubit/download_cubit.dart';
-import 'package:open_file_safe/open_file_safe.dart';
+import 'package:open_filex/open_filex.dart';
 
 class SingleFileDownload extends StatelessWidget {
   const SingleFileDownload({
@@ -62,7 +62,7 @@ class SingleFileDownload extends StatelessWidget {
                     message: "Hali yuklamagan yoki jarayonda",
                   );
                 } else {
-                  OpenFile.open(downloadedFile.filePath);
+                  OpenFilex.open(downloadedFile.filePath);
                 }
               },
               icon: const Icon(Icons.file_open),
